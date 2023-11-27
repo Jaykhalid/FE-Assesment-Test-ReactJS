@@ -22,7 +22,7 @@ const InputPenghitung = () => {
   };
 
   return (
-    <div>
+    <div className='space-jawaban'>
       <input type="text" value={inputString} onChange={trigger} />
       <button onClick={trigger}>reset</button>
       <table>

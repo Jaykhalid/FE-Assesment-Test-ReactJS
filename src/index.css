@@ -38,13 +38,16 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.6em 2.5em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #646cffaa;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin: 0 3em;
+  will-change: filter;
+  transition: filter 300ms;
 }
 button:hover {
   border-color: #646cff;
@@ -54,6 +57,9 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+button.generate {
+  background-color: #19c89caa;
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -65,4 +71,54 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.user-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.user-table {
+  background-color: #333;
+  color: #eee;
+  border: 1px solid #555;
+}
+
+.user-table th,
+.user-table td {
+  padding: 8px;
+  text-align: center;
+}
+
+.user-table th {
+  background-color: #00ffddaa
+}
+
+.user-table tr:nth-child(even) {
+  background-color: #00ffdd8e;
+
+  .user-table-actions button {
+    background-color: #333;
+  }
+}
+
+.user-table tr:hover {
+  background-color: #04074faa;
+}
+
+.user-table-actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.user-table-actions button {
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 1em 0;
+  background-color: #00ffddaa;
+}
+
+.user-table-actions button:hover {
+  background-color: #00ffddaa;
 }

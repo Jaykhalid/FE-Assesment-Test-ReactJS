@@ -31,10 +31,10 @@ function App() {
   };
 
   return (
-    <div>
+    <div className='space-jawaban'>
       <label>Masukkan bilangan deret angka (dipisahkan oleh spasi/koma) : </label>
       <input type="text" value={numbersString} onChange={handleInputChange} />
-      <button onClick={calculateStats}> Hitung hasilnya </button>
+      <button className='generate' onClick={calculateStats}> Hitung hasilnya </button>
       {stats.highestValue && <p>Nilai terbesar : {stats.highestValue}</p>}
       {stats.lowestValue && <p>Nilai terkecil  : {stats.lowestValue}</p>}
       {stats.average && <p>Nilai Rata-rata : {stats.average}</p>}

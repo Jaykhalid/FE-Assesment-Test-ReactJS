@@ -29,14 +29,14 @@ const InputFormatJudul = () => {
   };
   
   return (
-    <div>
+    <div className='space-jawaban'>
       <input
         type="text"
         placeholder="Enter your string"
         onChange={trigger}
         value={inputString}
       />
-      <button onClick={trigger}>reset</button>
+      <button className='btn' onClick={trigger}>reset</button>
       <p>{formattedString1}</p>
       <p>{formattedString2}</p>
     </div>

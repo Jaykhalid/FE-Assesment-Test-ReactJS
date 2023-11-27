@@ -39,7 +39,7 @@ const DeretAngkaComponent = () => {
   };
 
   return (
-    <div>
+    <div className='space-jawaban'>
       <label htmlFor="inputValue">Jumlah bilangan yang akan ditampilkan : </label>
       <input
         type="number"
@@ -47,7 +47,7 @@ const DeretAngkaComponent = () => {
         value={inputValue}
         onChange={inputChangeHandler}
       />
-      <button onClick={generateDeretAngka}>Generate!</button>
+      <button className='generate' onClick={generateDeretAngka}>Generate!</button>
 
       <div>
         <p>Deret Angka 1 : </p>
@@ -69,7 +69,6 @@ const DeretAngkaComponent = () => {
           <span key={number}> {number}, </span>
         ))}
       </div>
-      <hr />
     </div>
   );
 };
