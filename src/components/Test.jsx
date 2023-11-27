@@ -1,105 +1,77 @@
 import { useState } from 'react';
 
-const SquareSeries = ({ n }) => {
-  const [series, setSeries] = useState([1, 4, 9, 16, 25]);
+const DeretAngkaComponent = () => {
+  const [numberInput, setNumberInput]     = useState('');
+  const [numberSeries1, setNumberSeries1] = useState([]);
+  const [numberSeries2, setNumberSeries2] = useState([]);
+  const [numberSeries3, setNumberSeries3] = useState([]);
 
-  const calculateNextSquare = () => {
-    const nextSquare = Math.pow(n + 1, 2);
-    setSeries([...series, nextSquare]);
+  const handleInputChange = (event) => {
+    setNumberInput(event.target.value);
+  };
+
+  const generateNumberSeries = () => {
+    const inputNumber = parseInt(numberInput);
+    if (!isNaN(inputNumber)) {
+      const series1 = [];
+      const series2 = [];
+      const series3 = [0, 0];
+
+      for (let i = 1; i <= inputNumber; i++) {
+        series1.push(i ** 2);
+      }
+
+      for (let i = 0; i < inputNumber; i++) {
+        series2.push(i * i + 1);
+      }
+
+      for (let i = 2; i <= inputNumber; i++) {
+        const currentNumber = series3[i - 1] + series3[i - 2] + 1;
+        series3.push(currentNumber);
+      }
+
+      setNumberSeries1(series1);
+      setNumberSeries2(series2);
+      setNumberSeries3(series3);
+    } else {
+      alert('Harap memasukkan bilangan angka');
+    }
   };
 
   return (
     <div>
-      <ul>
-        {series.map((square) => (
-          <li key={square}>{square}</li>
-        ))}
-      </ul>
-      <button onClick={calculateNextSquare}>Calculate Next Square</button>
-    </div>
-  );
-};
-
-const NumberSeries = ({ n }) => {
-  const [series, setSeries] = useState([1, 2, 5, 10, 17, 26]);
-
-  const calculateNextNumber = () => {
-    const nextNumber = series[series.length - 1] + 2;
-    setSeries([...series, nextNumber]);
-  };
-
-  return (
-    <div>
-      <ul>
-        {series.map((number) => (
-          <li key={number}>{number}</li>
-        ))}
-      </ul>
-      <button onClick={calculateNextNumber}>Calculate Next Number</button>
-    </div>
-  );
-};
-
-const FibonacciSeries = ({ n }) => {
-  const [series, setSeries] = useState([0]);
-
-  const calculateNextFibonacci = () => {
-    const nextFibonacci = series[series.length - 1] + series[series.length - 2];
-    setSeries([...series, nextFibonacci]);
-  };
-
-  return (
-    <div>
-      <ul>
-        {series.map((fibonacci) => (
-          <li key={fibonacci}>{fibonacci}</li>
-        ))}
-      </ul>
-      <button onClick={calculateNextFibonacci}>Calculate Next Fibonacci</button>
-    </div>
-  );
-};
-
-const App = () => {
-  const [n1, setN1] = useState(1);
-  const [n2, setN2] = useState(1);
-  const [n3, setN3] = useState(3);
-
-  const handleN1Change = (event) => {
-    setN1(parseInt(event.target.value));
-  };
-
-  const handleN2Change = (event) => {
-    setN2(parseInt(event.target.value));
-  };
-
-  const handleN3Change = (event) => {
-    setN3(parseInt(event.target.value));
-  };
-
-  return (
-    <div>
-      <h1>Number Series Generator</h1>
+      <label htmlFor="numberInput">Jumlah bilangan yang akan ditampilkan : </label>
+      <input
+        type="number"
+        id="numberInput"
+        value={numberInput}
+        onChange={handleInputChange}
+      />
+      <button onClick={generateNumberSeries}>Generate!</button>
 
       <div>
-        <h2>Series 2: 1 4 9 16 25 ...</h2>
-        <input type="number" value={n2} onChange={handleN2Change} />
-        <SquareSeries n={n2} />
-      </div>
-      
-      <div>
-        <h2>Series 1: 1 2 5 10 17 26 ...</h2>
-        <input type="number" value={n1} onChange={handleN1Change} />
-        <NumberSeries n={n1} />
+        <p>Deret Angka 1: </p>
+        {numberSeries1.map((number) => (
+          <span key={number}> {number}, </span>
+        ))}
       </div>
 
       <div>
-        <h2>Series 3: 0 0 1 2 4 ...</h2>
-        <input type="number" value={n3} onChange={handleN3Change} />
-        <FibonacciSeries n={n3} />
+        <p>Deret Angka 2: </p>
+        {numberSeries2.map((number) => (
+          <span key={number}> {number}, </span>
+        ))}
       </div>
+
+      <div>
+        <p>Deret Angka 3: </p>
+        {numberSeries3.map((number) => (
+          <span key={number}> {number}, </span>
+        ))}
+      </div>
+      <hr />
     </div>
   );
 };
 
-export default App;
+export default DeretAngkaComponent;

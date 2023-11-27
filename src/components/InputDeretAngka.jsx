@@ -1,39 +1,71 @@
 import { useState } from 'react';
 
-const DeretAngka1 = () => {
-  const [numberInput, setNumberInput] = useState('');
-  const [numberSeries, setNumberSeries] = useState([]);
+const DeretAngkaComponent = () => {
+  const [inputValue, setInputValue]   = useState('');
+  const [deretAngka1, setDeretAngka1] = useState([]);
+  const [deretAngka2, setDeretAngka2] = useState([]);
+  const [deretAngka3, setDeretAngka3] = useState([]);
 
-  const handleInputChange = (event) => {
-    setNumberInput(event.target.value);
+  const inputChangeHandler = (e) => {
+    setInputValue(e.target.value);
   };
 
-  const generateNumberSeries = () => {
-    const inputNumber = parseInt(numberInput);
-    if (!isNaN(inputNumber) && inputNumber > 0) {
-      const series = [];
-      for (let i = 1; i <= inputNumber; i++) {
-        series.push(i ** 2);
+  const generateDeretAngka = () => {
+    const nilaiAwal = parseInt(inputValue);
+    if (!isNaN(nilaiAwal)) {
+      const deret1 = [];
+      const deret2 = [];
+      const deret3 = [0, 0];
+
+      for (let i = 1; i <= nilaiAwal; i++) {
+        deret1.push(i ** 2);
       }
-      setNumberSeries(series);
+
+      for (let i = 0; i < nilaiAwal; i++) {
+        deret2.push(i * i + 1);
+      }
+
+      for (let i = 2; i <= nilaiAwal; i++) {
+        const hasilKalkulasi = deret3[i - 1] + deret3[i - 2] + 1;
+        deret3.push(hasilKalkulasi);
+      }
+
+      setDeretAngka1(deret1);
+      setDeretAngka2(deret2);
+      setDeretAngka3(deret3);
     } else {
-      alert('Harap memasukkan bilangan angka');
+      alert('Harap memasukkan bilangan angka ');
     }
   };
 
   return (
     <div>
-      <label htmlFor="numberInput">Jumlah bilangan yang akan ditampilkan : </label>
+      <label htmlFor="inputValue">Jumlah bilangan yang akan ditampilkan : </label>
       <input
         type="number"
-        id="numberInput"
-        value={numberInput}
-        onChange={handleInputChange}
+        id="inputValue"
+        value={inputValue}
+        onChange={inputChangeHandler}
       />
-      <button onClick={generateNumberSeries}>Generate!</button>
+      <button onClick={generateDeretAngka}>Generate!</button>
 
       <div>
-        {numberSeries.map((number) => (
+        <p>Deret Angka 1 : </p>
+        {deretAngka1.map((number) => (
+          <span key={number}> {number}, </span>
+        ))}
+      </div>
+
+      <div>
+        <p>Deret Angka 2 : </p>
+        {deretAngka2.map((number) => (
+          <span key={number}> {number}, </span>
+        ))}
+      </div>
+
+      <div>
+        <p>Deret Angka 3 : </p>
+        {deretAngka3.map((number) => (
           <span key={number}> {number}, </span>
         ))}
       </div>
@@ -42,88 +74,4 @@ const DeretAngka1 = () => {
   );
 };
 
-const DeretAngka2 = () => {
-  const [numberInput, setNumberInput] = useState('');
-  const [numberSeries, setNumberSeries] = useState([]);
-
-  const handleInputChange = (event) => {
-    setNumberInput(event.target.value);
-  };
-
-  const generateNumberSeries = () => {
-    const inputNumber = parseInt(numberInput);
-    if (!isNaN(inputNumber) && inputNumber >= 0) {
-      const series = [];
-      for (let i = 0; i < inputNumber; i++) {
-        series.push(i * i + 1);
-      }
-      setNumberSeries(series);
-    } else {
-      alert('Harap memasukkan bilangan angka')
-    }
-  };
-
-  return (
-    <div>
-      <label htmlFor="numberInput">Jumlah bilangan yang akan ditampilkan : </label>
-      <input
-        type="number"
-        id="numberInput"
-        value={numberInput}
-        onChange={handleInputChange}
-      />
-      <button onClick={generateNumberSeries}>Generate!</button>
-
-      <div>
-        {numberSeries.map((number) => (
-          <span key={number}> {number}, </span>
-        ))}
-      </div>
-      <hr />
-    </div>
-  );
-};
-
-const DeretAngka3 = () => {
-  const [numberInput, setNumberInput] = useState('');
-  const [numberSeries, setNumberSeries] = useState([]);
-
-  const handleInputChange = (event) => {
-    setNumberInput(event.target.value);
-  };
-
-  const generateNumberSeries = () => {
-    const inputNumber = parseInt(numberInput);
-    if (!isNaN(inputNumber)) {
-      const series = [0, 0];
-      for (let i = 2; i <= inputNumber; i++) {
-        const currentNumber = series[i - 1] + series[i - 2] + 1;
-        series.push(currentNumber);
-      }
-      setNumberSeries(series);
-    } else {
-      alert('Harap memasukkan bilangan angka')
-    }
-  };
-
-  return (
-    <div>
-      <label htmlFor="numberInput">Jumlah bilangan yang akan ditampilkan : </label>
-      <input
-        type="number"
-        id="numberInput"
-        value={numberInput}
-        onChange={handleInputChange}
-      />
-      <button onClick={generateNumberSeries}>Generate!</button>
-
-        <div>
-          {numberSeries.map((number, index) => (
-            <span key={index}> {number}, </span>
-          ))}
-        </div>
-    </div>
-  );
-};
-
-export {DeretAngka1, DeretAngka2, DeretAngka3};
+export default DeretAngkaComponent;

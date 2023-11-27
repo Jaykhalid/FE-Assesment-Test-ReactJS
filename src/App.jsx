@@ -1,18 +1,19 @@
 import Soal1 from './components/InputFormatJudul';
 import Soal2 from './components/InputPenghitung';
-import {DeretAngka1, DeretAngka2, DeretAngka3} from './components/InputDeretAngka';
+import Soal3 from './components/InputDeretAngka';
 import Soal4 from './components/InputKalkulasi';
 import './App.css'
 
 function App() {
   return (
     <>
-      <>
-        <h1>⭐ Technical Test Assesment</h1>
+      <h1>⭐ Technical Test Assesment</h1>
+
+      <div className="tesContainer">
         <h2>Test Logika dan Algoritma</h2>
         <div className="paragraf">
           <ul>
-              <li>Diberikan sebuah string yang dapat mengandung huruf, angka, spasi dan tanda baca.</li>
+              <li><h3>Diberikan sebuah string yang dapat mengandung huruf, angka, spasi dan tanda baca.</h3></li>
           </ul>
 
           <div className="subpoin">
@@ -31,7 +32,7 @@ function App() {
 
         <div className="paragraf">
           <ul>
-              <li>Diberikan sebuah string acak, hitunglah berapa jumlah setiap karakter yang ada dalam string tersebut.</li>
+              <li><h3>Diberikan sebuah string acak, hitunglah berapa jumlah setiap karakter yang ada dalam string tersebut.</h3></li>
           </ul>
 
           <div className="subpoin">
@@ -44,7 +45,7 @@ function App() {
         
         <div className="paragraf">
           <ul>
-              <li>Buatlah kode pemrograman untuk menampilkan deret angka sebagai berikut, sebanyak inputan user : </li>
+              <li><h3>Buatlah kode pemrograman untuk menampilkan deret angka sebagai berikut, sebanyak inputan user : </h3></li>
           </ul>
 
           <div className="subpoin">
@@ -56,16 +57,14 @@ function App() {
             </ul>
             <div className="space-jawaban">
               <h5>Jawaban</h5>
-              <DeretAngka1 />
-              <DeretAngka2 />
-              <DeretAngka3 />
+              <Soal3 />
             </div>
           </div>
         </div>
         
         <div className="paragraf">
           <ul>
-              <li>Diberikan sebuah deret angka random oleh user berupa string (dipisahkan oleh spasi atau koma (,), ex. “20, 21, 80, 21, 55, 31, 22” ) hitunglah : </li>
+              <li><h3>Diberikan sebuah deret angka random oleh user berupa string (dipisahkan oleh spasi atau koma (,), ex. “20, 21, 80, 21, 55, 31, 22” ) hitunglah : </h3></li>
           </ul>
 
           <div className="subpoin">
@@ -81,7 +80,11 @@ function App() {
             </div>
           </div>
         </div>
-      </>
+      </div>
+
+      <div className="tesContainer">
+
+      </div>
     </>
   )
 }

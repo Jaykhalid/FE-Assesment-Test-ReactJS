@@ -5,6 +5,10 @@
   text-align: center;
 }
 
+.tesContainer {
+  margin: 2.5em 0 2.5em 0;
+}
+
 .paragraf {
   margin: 5em 0 0 0;
   text-align: left;
