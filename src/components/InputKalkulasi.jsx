@@ -1,7 +1,45 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-const InputKalkulasi = () => {
+function App() {
+  const [numbersString, setNumbersString] = useState('');
+  const [stats, setStats] = useState({
+    average: null,
+    highestValue: null,
+    lowestValue: null,
+  });
 
-}; 
+  const handleInputChange = (event) => {
+    setNumbersString(event.target.value);
+  };
 
-export default InputKalkulasi;
+  const calculateStats = () => {
+    const numbers = numbersString.split(',').map((number) => parseInt(number));
+
+    const sum = numbers.reduce((acc, num) => acc + num, 0);
+    const averageValue = sum / numbers.length;
+
+    const highest = Math.max(...numbers);
+    const lowest = Math.min(...numbers);
+
+    const newStats = {
+      average: averageValue,
+      highestValue: highest,
+      lowestValue: lowest,
+    };
+
+    setStats(newStats);
+  };
+
+  return (
+    <div>
+      <label>Masukkan bilangan deret angka (dipisahkan oleh spasi/koma) : </label>
+      <input type="text" value={numbersString} onChange={handleInputChange} />
+      <button onClick={calculateStats}> Hitung hasilnya </button>
+      {stats.highestValue && <p>Nilai terbesar : {stats.highestValue}</p>}
+      {stats.lowestValue && <p>Nilai terkecil  : {stats.lowestValue}</p>}
+      {stats.average && <p>Nilai Rata-rata : {stats.average}</p>}
+    </div>
+  );
+}
+
+export default App;

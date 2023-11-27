@@ -21,7 +21,7 @@ const InputFormatJudul = () => {
       .replace(/(\b\w)/g, (match) => match.toUpperCase()); // Capitalizes the first letter of each word using regular expressions.
 
     // Create a second formatted string by replacing spaces with stripes
-    const formattedString2 = formattedString1.replace(/\s/g, '-');
+    const formattedString2 = formattedString1.replace(/\s/g, '-').toLowerCase();
   
     // Update the formatted string states
     setFormattedString1(formattedString1);

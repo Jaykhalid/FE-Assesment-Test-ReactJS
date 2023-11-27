@@ -62,6 +62,25 @@ function App() {
             </div>
           </div>
         </div>
+        
+        <div className="paragraf">
+          <ul>
+              <li>Diberikan sebuah deret angka random oleh user berupa string (dipisahkan oleh spasi atau koma (,), ex. “20, 21, 80, 21, 55, 31, 22” ) hitunglah : </li>
+          </ul>
+
+          <div className="subpoin">
+            <ul>
+              <li>nilai terbesar</li>
+              <li>nilai terkecil</li>
+              <li>nilai rata-rata</li>
+              
+            </ul>
+            <div className="space-jawaban">
+              <h5>Jawaban</h5>
+              <Soal4 />
+            </div>
+          </div>
+        </div>
       </>
     </>
   )
